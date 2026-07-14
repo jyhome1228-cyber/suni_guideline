@@ -46,20 +46,18 @@ window.BRAND_DATA = {
   /* =======================================================
      03. BRAND THEME
 
-     아래 색상은 가이드라인 화면 전체에 적용됩니다.
-
      primary:
-     표지, 마지막 장, 선택된 메뉴, 주요 강조색
+     표지, 마지막 장, 메뉴 선택 상태 등에 사용됩니다.
 
      paper:
-     일반 가이드라인 페이지 배경색
+     일반 가이드라인 페이지 배경입니다.
   ======================================================= */
 
   theme: {
-    primary: "#222222",
-    primaryLight: "#666666",
-    secondary: "#D8D8D8",
-    accent: "#F0F0F0",
+    primary: "#452E82",
+    primaryLight: "#7D68B1",
+    secondary: "#D9D2F0",
+    accent: "#EEE9F8",
 
     black: "#171717",
     dark: "#2B2B2B",
@@ -71,12 +69,9 @@ window.BRAND_DATA = {
   /* =======================================================
      04. PAGE STRUCTURE
 
-     페이지 번호와 ID는 app.js에서 자동 생성합니다.
+     순서를 변경하려면 배열 순서만 변경합니다.
 
-     순서를 바꾸려면 배열 순서만 변경합니다.
-     페이지를 숨기려면 enabled를 false로 변경합니다.
-
-     예시:
+     페이지를 숨기려면:
      enabled: false
   ======================================================= */
 
@@ -273,8 +268,6 @@ window.BRAND_DATA = {
   /* =======================================================
      06. FULL IMAGE MOCKUPS
 
-     이미지가 없는 동안에는 블랭크 페이지가 표시됩니다.
-
      이미지 적용 예시:
 
      src: "./assets/images/mockup-front.jpg"
@@ -296,7 +289,7 @@ window.BRAND_DATA = {
         "FRONT BRAND MOCKUP",
 
       backgroundColor:
-        "#E8E8E8"
+        "#E8E5ED"
     },
 
     back: {
@@ -313,7 +306,7 @@ window.BRAND_DATA = {
         "BACK BRAND MOCKUP",
 
       backgroundColor:
-        "#D8D8D8"
+        "#D9D2F0"
     }
   },
 
@@ -355,11 +348,6 @@ window.BRAND_DATA = {
 
   /* =======================================================
      08. BRAND KEYWORDS
-
-     기본 구성은 6개입니다.
-
-     키워드 개수를 변경하면 app.js가
-     가능한 범위에서 자동으로 배열합니다.
   ======================================================= */
 
   keywords: {
@@ -501,14 +489,6 @@ window.BRAND_DATA = {
 
   /* =======================================================
      11. LOGO SYSTEM
-
-     SVG 파일을 직접 붙여 넣을 때는
-     fill 값을 currentColor로 바꾸는 것이 좋습니다.
-
-     예시:
-     fill="#000000"
-     ↓
-     fill="currentColor"
   ======================================================= */
 
   logo: {
@@ -519,21 +499,32 @@ window.BRAND_DATA = {
     /* -------------------------------------------------------
        LOGO FILE PATH
 
-       파일 다운로드나 외부 적용에 사용할 경로입니다.
-       아직 파일이 없다면 빈 값으로 둡니다.
+       GitHub의 assets/logo 폴더에 업로드한
+       SVG 파일 경로를 연결합니다.
     ------------------------------------------------------- */
 
     files: {
       primary:
-        "",
+        "./assets/logo/logo-primary.svg",
 
       primaryWhite:
-        "",
+        "./assets/logo/logo-white.svg",
 
       primaryBlack:
-        "",
+        "./assets/logo/logo-black.svg",
 
       alternate:
+        "./assets/logo/logo-alternate.svg",
+
+      /*
+        확장형 화이트·블랙 SVG가 생기면
+        아래 경로를 입력하면 됩니다.
+      */
+
+      alternateWhite:
+        "",
+
+      alternateBlack:
         ""
     },
 
@@ -580,6 +571,9 @@ window.BRAND_DATA = {
 
     /* -------------------------------------------------------
        PRIMARY LOGO
+
+       외부 SVG 파일을 사용하므로
+       svg 값은 비워둡니다.
     ------------------------------------------------------- */
 
     primary: {
@@ -587,7 +581,7 @@ window.BRAND_DATA = {
         "Primary Logo",
 
       label:
-        "Primary Logo",
+        "Primary Symbol",
 
       description:
         "기본 로고는 브랜드의 가장 대표적인 시각 자산입니다. 모든 공식 매체에서 우선적으로 사용하며, 형태와 비율을 임의로 변경하거나 재구성해서는 안 됩니다.",
@@ -600,22 +594,22 @@ window.BRAND_DATA = {
     /* -------------------------------------------------------
        ALTERNATE LOGO
 
-       보조 로고가 없다면 enabled를 false로 둡니다.
-       app.js가 기본 로고만 중앙에 표시합니다.
+       enabled가 true이면 Primary Logo 페이지에서
+       기본형과 확장형이 함께 표시됩니다.
     ------------------------------------------------------- */
 
     alternate: {
       enabled:
-        false,
+        true,
 
       name:
         "Alternate Logo",
 
       label:
-        "Alternate Logo",
+        "Alternate Symbol",
 
       description:
-        "보조 로고는 기본 로고를 보완하는 확장형 자산입니다. 정해진 환경과 매체에서만 제한적으로 사용합니다.",
+        "확장형 로고는 기본 로고의 조형 언어를 확장한 보조 자산입니다. 브랜드의 개성과 형태적 인상을 강조해야 하는 환경에서 사용하며, 기본 로고보다 우선하여 사용하지 않습니다.",
 
       svg:
         ""
@@ -680,6 +674,9 @@ window.BRAND_DATA = {
 
     /* -------------------------------------------------------
        LOGO USAGE
+
+       alternate의 화이트·블랙 전용 파일이 없기 때문에
+       현재 확장형 로고는 기본 컬러로만 사용합니다.
     ------------------------------------------------------- */
 
     usageDescription:
@@ -758,16 +755,16 @@ window.BRAND_DATA = {
 
       {
         label:
-          "White Logo / Primary Light Background",
+          "Alternate Logo / Accent Background",
 
         background:
           "primary-light",
 
         logoColor:
-          "white",
+          "primary",
 
         logoType:
-          "primary"
+          "alternate"
       }
     ]
   },
@@ -796,13 +793,13 @@ window.BRAND_DATA = {
           "Primary",
 
         hex:
-          "#222222",
+          "#452E82",
 
         rgb:
-          "R34 G34 B34",
+          "R69 G46 B130",
 
         cmyk:
-          "C0 M0 Y0 K87",
+          "C47 M65 Y0 K49",
 
         textColor:
           "light"
@@ -816,13 +813,13 @@ window.BRAND_DATA = {
           "Secondary",
 
         hex:
-          "#666666",
+          "#7D68B1",
 
         rgb:
-          "R102 G102 B102",
+          "R125 G104 B177",
 
         cmyk:
-          "C0 M0 Y0 K60",
+          "C29 M41 Y0 K31",
 
         textColor:
           "light"
@@ -836,13 +833,13 @@ window.BRAND_DATA = {
           "Accent",
 
         hex:
-          "#D8D8D8",
+          "#D9D2F0",
 
         rgb:
-          "R216 G216 B216",
+          "R217 G210 B240",
 
         cmyk:
-          "C0 M0 Y0 K15",
+          "C10 M13 Y0 K6",
 
         textColor:
           "dark"
@@ -856,13 +853,13 @@ window.BRAND_DATA = {
           "Neutral",
 
         hex:
-          "#F0F0F0",
+          "#EEE9F8",
 
         rgb:
-          "R240 G240 B240",
+          "R238 G233 B248",
 
         cmyk:
-          "C0 M0 Y0 K6",
+          "C4 M6 Y0 K3",
 
         textColor:
           "dark"
@@ -1010,10 +1007,6 @@ window.BRAND_DATA = {
 
   /* =======================================================
      14. VISUAL APPLICATION
-
-     이미지 경로 예시:
-
-     src: "./assets/images/application-01.jpg"
   ======================================================= */
 
   application: {
