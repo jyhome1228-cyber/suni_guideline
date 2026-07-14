@@ -1,0 +1,2106 @@
+/* =========================================================
+   GENERIC BRAND GUIDELINES
+   Screen / Common Styles
+   A4 Landscape 297 × 210mm
+========================================================= */
+
+
+/* =========================================================
+   01. FONT
+========================================================= */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css");
+
+
+/* =========================================================
+   02. ROOT VARIABLES
+
+   실제 브랜드 컬러는 brand-data.js의 값을
+   app.js가 아래 CSS 변수에 자동 적용합니다.
+========================================================= */
+
+:root {
+  /* Brand */
+  --brand-primary: #222222;
+  --brand-primary-light: #666666;
+  --brand-secondary: #d8d8d8;
+  --brand-accent: #f0f0f0;
+
+  /* Neutral */
+  --color-black: #171717;
+  --color-dark: #2b2b2b;
+  --color-gray-900: #3f3f3f;
+  --color-gray-700: #6d6d6d;
+  --color-gray-500: #989898;
+  --color-gray-400: #b2b2b2;
+  --color-gray-300: #cccccc;
+  --color-gray-200: #dedede;
+  --color-gray-100: #eeeeee;
+  --color-paper: #f6f6f6;
+  --color-white: #ffffff;
+
+  /* A4 Landscape */
+  --page-width: 297mm;
+  --page-height: 210mm;
+
+  --page-padding-x: 13mm;
+  --page-padding-top: 11mm;
+  --page-padding-bottom: 10mm;
+
+  /* Font */
+  --font-primary:
+    "Pretendard Variable",
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+
+  /* Typography */
+  --font-display: 34px;
+  --font-large: 25px;
+  --font-title: 15px;
+  --font-subtitle: 10px;
+  --font-body: 8.8px;
+  --font-small: 7.5px;
+  --font-caption: 6.8px;
+  --font-footer: 7.4px;
+
+  /* Lines */
+  --line-color: #6d6d6d;
+  --line-light: #b3b3b3;
+
+  /* Screen UI */
+  --toolbar-height: 62px;
+  --navigation-width: 214px;
+  --page-screen-gap: 28px;
+  --screen-background: #d7d7d7;
+
+  /* Motion */
+  --transition-fast: 180ms ease;
+  --transition-normal: 280ms ease;
+}
+
+
+/* =========================================================
+   03. RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+
+  scroll-behavior: smooth;
+  background: var(--screen-background);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+
+  color: var(--color-black);
+  background: var(--screen-background);
+
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  word-break: keep-all;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+figure,
+blockquote,
+p,
+h1,
+h2,
+h3,
+h4,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* =========================================================
+   04. SCREEN TOOLBAR
+========================================================= */
+
+.screen-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  height: var(--toolbar-height);
+  padding: 0 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(247, 247, 247, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.toolbar-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  white-space: nowrap;
+}
+
+.toolbar-brand strong {
+  font-size: 14px;
+  font-weight: 760;
+  letter-spacing: 0.03em;
+}
+
+.toolbar-brand span {
+  color: var(--color-gray-700);
+
+  font-size: 11px;
+  font-weight: 450;
+}
+
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-indicator {
+  min-width: 62px;
+  margin-right: 4px;
+
+  color: var(--color-gray-700);
+
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.toolbar-button {
+  min-height: 34px;
+  padding: 0 14px;
+
+  color: var(--color-black);
+  background: var(--color-white);
+
+  border: 1px solid var(--color-gray-300);
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 560;
+
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.toolbar-button:hover {
+  border-color: var(--color-gray-700);
+  transform: translateY(-1px);
+}
+
+.toolbar-button:active {
+  transform: translateY(0);
+}
+
+.toolbar-button:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.toolbar-button-dark {
+  color: var(--color-white);
+  background: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.toolbar-button-dark:hover {
+  color: var(--color-white);
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+
+/* =========================================================
+   05. SCREEN NAVIGATION
+========================================================= */
+
+.screen-navigation {
+  position: fixed;
+  top: calc(var(--toolbar-height) + 22px);
+  left: 22px;
+  z-index: 900;
+
+  width: var(--navigation-width);
+  max-height: calc(100vh - var(--toolbar-height) - 44px);
+
+  padding: 13px 11px;
+
+  overflow-y: auto;
+
+  background: rgba(247, 247, 247, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.screen-navigation::-webkit-scrollbar {
+  width: 4px;
+}
+
+.screen-navigation::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 999px;
+}
+
+.screen-navigation a {
+  min-height: 31px;
+  padding: 6px 8px;
+
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: center;
+  gap: 7px;
+
+  color: var(--color-gray-700);
+
+  border-radius: 7px;
+
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.screen-navigation a span {
+  font-size: 8px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.62;
+}
+
+.screen-navigation a:hover {
+  color: var(--color-black);
+  background: rgba(0, 0, 0, 0.055);
+}
+
+.screen-navigation a.is-active {
+  color: var(--color-white);
+  background: var(--brand-primary);
+}
+
+.screen-navigation a.is-active span {
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   06. DOCUMENT
+========================================================= */
+
+.guideline-document {
+  width: 100%;
+
+  padding:
+    calc(var(--toolbar-height) + 28px)
+    28px
+    70px
+    calc(var(--navigation-width) + 62px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--page-screen-gap);
+}
+
+
+/* =========================================================
+   07. A4 LANDSCAPE PAGE
+========================================================= */
+
+.guideline-page {
+  position: relative;
+
+  width: var(--page-width);
+  height: var(--page-height);
+
+  flex: 0 0 auto;
+  overflow: hidden;
+
+  color: var(--color-black);
+  background: var(--color-paper);
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.04),
+    0 18px 50px rgba(0, 0, 0, 0.14);
+
+  scroll-margin-top: calc(var(--toolbar-height) + 24px);
+}
+
+.page-inner {
+  position: absolute;
+
+  inset:
+    var(--page-padding-top)
+    var(--page-padding-x)
+    var(--page-padding-bottom);
+}
+
+
+/* =========================================================
+   08. COMMON PAGE HEADER
+========================================================= */
+
+.page-header {
+  display: grid;
+  grid-template-columns: 94px minmax(0, 1fr);
+  column-gap: 34px;
+  align-items: start;
+}
+
+.page-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.page-section-title {
+  font-size: var(--font-title);
+  font-weight: 730;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.page-section-subtitle {
+  margin-top: 3px;
+
+  font-size: var(--font-subtitle);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.page-description {
+  max-width: 620px;
+
+  color: var(--color-dark);
+
+  font-size: var(--font-body);
+  font-weight: 400;
+  line-height: 1.88;
+  letter-spacing: -0.012em;
+}
+
+.page-description.is-wide {
+  max-width: 760px;
+}
+
+.page-rule {
+  width: 100%;
+  height: 1px;
+  margin-top: 15px;
+
+  background: var(--line-color);
+  opacity: 0.84;
+}
+
+.page-content {
+  position: relative;
+
+  width: 100%;
+  height: calc(100% - 62px);
+
+  padding-top: 18px;
+}
+
+
+/* =========================================================
+   09. COMMON FOOTER
+========================================================= */
+
+.page-footer {
+  position: absolute;
+
+  right: var(--page-padding-x);
+  bottom: var(--page-padding-bottom);
+  left: var(--page-padding-x);
+}
+
+.page-footer::before {
+  content: "";
+
+  display: block;
+
+  width: 100%;
+  height: 1px;
+  margin-bottom: 3.4mm;
+
+  background: var(--line-color);
+  opacity: 0.84;
+}
+
+.page-footer-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr 220px;
+  align-items: center;
+
+  color: var(--color-dark);
+
+  font-size: var(--font-footer);
+  line-height: 1;
+}
+
+.page-footer-brand {
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: -0.035em;
+}
+
+.page-footer-section {
+  text-align: center;
+}
+
+.page-footer-guide {
+  text-align: right;
+}
+
+
+/* =========================================================
+   10. COMMON TEXT
+========================================================= */
+
+.text-display {
+  font-size: var(--font-display);
+  font-weight: 720;
+  line-height: 1.13;
+  letter-spacing: -0.045em;
+}
+
+.text-large {
+  font-size: var(--font-large);
+  font-weight: 680;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.text-body {
+  color: var(--color-dark);
+
+  font-size: var(--font-body);
+  line-height: 1.85;
+  letter-spacing: -0.012em;
+}
+
+.text-small {
+  color: var(--color-gray-700);
+
+  font-size: var(--font-small);
+  line-height: 1.6;
+}
+
+.text-caption {
+  color: var(--color-gray-700);
+
+  font-size: var(--font-caption);
+  line-height: 1.45;
+}
+
+.text-en {
+  word-break: normal;
+}
+
+.text-ko {
+  word-break: keep-all;
+}
+
+.text-primary {
+  color: var(--brand-primary);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+
+/* =========================================================
+   11. COMMON IMAGE
+========================================================= */
+
+.image-frame {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--color-gray-200);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.image-frame.contain img {
+  object-fit: contain;
+}
+
+.image-frame::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   12. EMPTY IMAGE
+========================================================= */
+
+.empty-image {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-gray-700);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-gray-100),
+      var(--color-gray-200)
+    );
+
+  font-size: 8px;
+  text-align: center;
+}
+
+.empty-image::before {
+  content: "";
+
+  position: absolute;
+  inset: 4mm;
+
+  border: 1px dashed var(--color-gray-500);
+}
+
+.empty-image span {
+  position: relative;
+  z-index: 1;
+
+  padding: 2mm 3mm;
+
+  background: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================================
+   13. LOGO
+========================================================= */
+
+.brand-logo {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  color: var(--brand-primary);
+
+  flex: 0 0 auto;
+}
+
+.brand-logo svg {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-height: inherit;
+
+  overflow: visible;
+}
+
+.brand-logo.is-primary {
+  color: var(--brand-primary);
+}
+
+.brand-logo.is-white {
+  color: var(--color-white);
+}
+
+.brand-logo.is-black {
+  color: var(--color-black);
+}
+
+.brand-logo-small {
+  width: 22mm;
+  max-height: 27mm;
+}
+
+.brand-logo-medium {
+  width: 37mm;
+  max-height: 46mm;
+}
+
+.brand-logo-large {
+  width: 55mm;
+  max-height: 68mm;
+}
+
+.brand-logo-alternate {
+  width: auto;
+  height: auto;
+}
+
+
+/* =========================================================
+   14. COVER
+========================================================= */
+
+.page-cover {
+  color: var(--color-white);
+  background: var(--brand-primary);
+}
+
+.page-cover .page-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cover-year {
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.cover-version {
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: right;
+  opacity: 0.78;
+}
+
+.cover-center {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 76%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+}
+
+.cover-logo {
+  width: 36mm;
+  max-height: 44mm;
+
+  color: var(--color-white);
+}
+
+.cover-title {
+  margin-top: 9mm;
+
+  font-size: 23px;
+  font-weight: 660;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  text-align: center;
+}
+
+.cover-subtitle {
+  margin-top: 3mm;
+
+  font-size: 9px;
+  font-weight: 450;
+  letter-spacing: -0.015em;
+  opacity: 0.8;
+}
+
+.cover-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  font-size: 7px;
+  line-height: 1.55;
+  opacity: 0.72;
+}
+
+.cover-bottom-right {
+  text-align: right;
+}
+
+
+/* =========================================================
+   15. FULL IMAGE MOCKUP PAGE
+========================================================= */
+
+.page-full-image {
+  position: relative;
+
+  padding: 0;
+
+  background: var(--brand-secondary);
+}
+
+.full-image-stage {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.full-image-stage img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.full-image-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    var(
+      --mockup-background,
+      var(--brand-secondary)
+    );
+}
+
+.full-image-placeholder-inner {
+  position: relative;
+
+  width: calc(100% - 26mm);
+  height: calc(100% - 22mm);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed rgba(0, 0, 0, 0.24);
+}
+
+.full-image-placeholder-inner::before,
+.full-image-placeholder-inner::after {
+  content: "";
+
+  position: absolute;
+
+  background: rgba(0, 0, 0, 0.09);
+}
+
+.full-image-placeholder-inner::before {
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+}
+
+.full-image-placeholder-inner::after {
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 100%;
+}
+
+.full-image-placeholder-inner span {
+  position: relative;
+  z-index: 2;
+
+  padding: 3mm 5mm;
+
+  color: rgba(0, 0, 0, 0.48);
+  background:
+    var(
+      --mockup-background,
+      var(--brand-secondary)
+    );
+
+  font-size: 8px;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: 0.09em;
+}
+
+
+/* =========================================================
+   16. BRAND INTRODUCTION
+========================================================= */
+
+.introduction-layout {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.12fr)
+    minmax(0, 0.88fr);
+
+  gap: 14mm;
+  align-items: stretch;
+}
+
+.introduction-copy {
+  padding: 4mm 2mm 9mm 12mm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.introduction-eyebrow {
+  margin-bottom: 5mm;
+
+  color: var(--brand-primary);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.introduction-title {
+  max-width: 175mm;
+
+  font-size: 28px;
+  font-weight: 690;
+  line-height: 1.22;
+  letter-spacing: -0.048em;
+}
+
+.introduction-body {
+  max-width: 145mm;
+  margin-top: 8mm;
+
+  color: var(--color-dark);
+
+  font-size: 9px;
+  line-height: 1.95;
+  letter-spacing: -0.012em;
+}
+
+.introduction-body p + p {
+  margin-top: 4mm;
+}
+
+.introduction-image {
+  height: 100%;
+}
+
+
+/* =========================================================
+   17. BRAND KEYWORDS
+========================================================= */
+
+.keyword-grid {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  grid-template-rows:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 6mm;
+}
+
+.keyword-card {
+  position: relative;
+
+  padding: 7mm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid var(--color-gray-500);
+  background: transparent;
+}
+
+.keyword-number {
+  color: var(--color-gray-500);
+
+  font-size: 7px;
+  font-variant-numeric: tabular-nums;
+}
+
+.keyword-word {
+  font-size: 19px;
+  font-weight: 690;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.keyword-description {
+  max-width: 88%;
+
+  color: var(--color-gray-900);
+
+  font-size: 7.8px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   18. SLOGAN
+========================================================= */
+
+.slogan-layout {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.86fr)
+    minmax(0, 1.14fr);
+
+  gap: 12mm;
+}
+
+.slogan-main {
+  padding-left: 12mm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slogan-label {
+  color: var(--brand-primary);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.slogan-title {
+  max-width: 150mm;
+  margin-top: 6mm;
+
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+
+.slogan-description {
+  max-width: 120mm;
+  margin-top: 7mm;
+
+  color: var(--color-dark);
+
+  font-size: 8.5px;
+  line-height: 1.85;
+}
+
+.slogan-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slogan-option {
+  padding: 6mm 7mm;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.slogan-option:last-child {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.slogan-option-number {
+  color: var(--color-gray-500);
+
+  font-size: 7px;
+}
+
+.slogan-option-text {
+  margin-top: 2.5mm;
+
+  font-size: 14px;
+  font-weight: 620;
+  letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   19. BRAND MESSAGE
+========================================================= */
+
+.message-visual {
+  position: absolute;
+  inset: 0;
+}
+
+.message-visual img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.message-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 15, 15, 0.76) 0%,
+      rgba(15, 15, 15, 0.38) 52%,
+      rgba(15, 15, 15, 0.08) 100%
+    );
+}
+
+.message-copy {
+  position: absolute;
+
+  top: 50%;
+  left: 17mm;
+  z-index: 2;
+
+  width: 128mm;
+
+  color: var(--color-white);
+
+  transform: translateY(-50%);
+}
+
+.message-copy-label {
+  font-size: 7.5px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.message-copy-title {
+  margin-top: 5mm;
+
+  font-size: 29px;
+  font-weight: 670;
+  line-height: 1.22;
+  letter-spacing: -0.045em;
+}
+
+.message-copy-body {
+  max-width: 110mm;
+  margin-top: 7mm;
+
+  font-size: 8.4px;
+  line-height: 1.85;
+  opacity: 0.88;
+}
+
+
+/* =========================================================
+   20. LOGO CONCEPT
+========================================================= */
+
+.logo-concept-layout {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+
+  gap: 15mm;
+}
+
+.logo-concept-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid var(--line-light);
+}
+
+.logo-concept-logo .brand-logo {
+  width: 48mm;
+  max-height: 60mm;
+}
+
+.logo-concept-copy {
+  padding-right: 10mm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-concept-title {
+  font-size: 22px;
+  font-weight: 690;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.logo-concept-body {
+  max-width: 135mm;
+  margin-top: 6mm;
+
+  color: var(--color-dark);
+
+  font-size: 8.6px;
+  line-height: 1.9;
+}
+
+.logo-concept-points {
+  margin-top: 9mm;
+
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 4mm;
+}
+
+.logo-concept-point {
+  padding-top: 3mm;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.logo-concept-point strong {
+  display: block;
+
+  font-size: 8px;
+  font-weight: 720;
+}
+
+.logo-concept-point span {
+  display: block;
+
+  margin-top: 2mm;
+
+  color: var(--color-gray-700);
+
+  font-size: 7px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   21. PRIMARY LOGO
+========================================================= */
+
+.page-primary-logo .page-content {
+  padding-top: 13px;
+}
+
+.primary-logo-versions {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  align-items: stretch;
+}
+
+.primary-logo-version {
+  position: relative;
+
+  min-width: 0;
+  height: 100%;
+
+  padding: 4mm 8mm 8mm;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.primary-logo-version:first-child::after {
+  content: "";
+
+  position: absolute;
+
+  top: 4mm;
+  right: 0;
+  bottom: 4mm;
+
+  width: 1px;
+
+  background: var(--line-light);
+}
+
+.primary-logo-stage-box {
+  width: 100%;
+  height: 85mm;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-logo-symbol {
+  width: 43mm;
+  max-width: 43mm;
+  max-height: 55mm;
+}
+
+.primary-logo-full {
+  width: 41mm;
+  max-width: 41mm;
+  max-height: 55mm;
+}
+
+.primary-logo-information {
+  width: 100%;
+
+  margin-top: 4mm;
+  padding-top: 3mm;
+
+  border-top: 1px solid var(--color-gray-300);
+
+  text-align: center;
+}
+
+.primary-logo-information strong {
+  display: block;
+
+  font-size: 8px;
+  font-weight: 720;
+  line-height: 1.35;
+}
+
+.primary-logo-information span {
+  display: block;
+
+  margin-top: 1.5mm;
+
+  color: var(--color-gray-700);
+
+  font-size: 7px;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   22. LOGO CONSTRUCTION
+========================================================= */
+
+.construction-stage {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.construction-grid {
+  position: absolute;
+
+  inset: 2mm 5mm 12mm;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.09) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.09) 1px,
+      transparent 1px
+    );
+
+  background-size: 6mm 6mm;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.construction-grid .brand-logo {
+  width: 49mm;
+  max-height: 61mm;
+}
+
+.measure-line {
+  position: absolute;
+
+  background: var(--brand-primary);
+}
+
+.measure-line.horizontal {
+  height: 1px;
+}
+
+.measure-line.vertical {
+  width: 1px;
+}
+
+.measure-label {
+  position: absolute;
+
+  padding: 1mm 2mm;
+
+  color: var(--brand-primary);
+  background: var(--color-paper);
+
+  font-size: 7px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   23. CLEAR SPACE
+========================================================= */
+
+.clear-space-layout {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.18fr)
+    minmax(0, 0.82fr);
+
+  gap: 10mm;
+}
+
+.clear-space-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-space-box {
+  position: relative;
+
+  width: 88mm;
+  height: 88mm;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed var(--brand-primary);
+}
+
+.clear-space-box::before,
+.clear-space-box::after {
+  content: "X";
+
+  position: absolute;
+
+  color: var(--brand-primary);
+
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.clear-space-box::before {
+  top: -5mm;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.clear-space-box::after {
+  top: 50%;
+  left: -5mm;
+
+  transform: translateY(-50%);
+}
+
+.clear-space-box .brand-logo {
+  width: 42mm;
+  max-height: 52mm;
+}
+
+.minimum-size-panel {
+  padding-left: 8mm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-left: 1px solid var(--line-light);
+}
+
+.minimum-size-title {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.minimum-size-items {
+  margin-top: 8mm;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7mm;
+}
+
+.minimum-size-item {
+  display: grid;
+  grid-template-columns: 37mm 1fr;
+  align-items: center;
+  gap: 6mm;
+}
+
+.minimum-size-item .brand-logo {
+  width: 22mm;
+  max-height: 27mm;
+}
+
+.minimum-size-value {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.minimum-size-caption {
+  margin-top: 1mm;
+
+  color: var(--color-gray-700);
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   24. LOGO USAGE
+========================================================= */
+
+.logo-usage-grid {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  grid-template-rows:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 5mm 7mm;
+}
+
+.logo-usage-card {
+  position: relative;
+
+  min-width: 0;
+  padding: 7mm 5mm 4mm;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid var(--color-gray-500);
+}
+
+.logo-usage-card[data-background="white"] {
+  background: #fafafa;
+}
+
+.logo-usage-card[data-background="primary"] {
+  background: var(--brand-primary);
+}
+
+.logo-usage-card[data-background="primary-light"] {
+  background: var(--brand-primary-light);
+}
+
+.logo-usage-card[data-background="secondary"] {
+  background: var(--brand-secondary);
+}
+
+.logo-usage-card[data-background="black"] {
+  background: var(--color-black);
+}
+
+.logo-usage-label {
+  position: absolute;
+
+  top: 3mm;
+  left: 3.5mm;
+  right: 3.5mm;
+
+  max-width: calc(100% - 7mm);
+
+  color: var(--color-dark);
+
+  font-size: 7px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.logo-usage-card[data-background="primary"] .logo-usage-label,
+.logo-usage-card[data-background="primary-light"] .logo-usage-label,
+.logo-usage-card[data-background="black"] .logo-usage-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.logo-usage-card .brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-usage-card .brand-logo:not(.brand-logo-alternate) {
+  width: 27mm;
+  max-height: 34mm;
+}
+
+.logo-usage-card .brand-logo-alternate {
+  width: 29mm;
+  max-height: 35mm;
+}
+
+
+/* =========================================================
+   25. BRAND COLOR
+========================================================= */
+
+.brand-color-grid {
+  height: 100%;
+
+  display: grid;
+  gap: 5mm;
+}
+
+.brand-color-grid[data-columns="2"] {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+.brand-color-grid[data-columns="3"] {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+.brand-color-grid[data-columns="4"] {
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+}
+
+.color-card {
+  min-width: 0;
+
+  display: grid;
+  grid-template-rows:
+    minmax(0, 1fr)
+    auto;
+}
+
+.color-swatch {
+  position: relative;
+
+  min-height: 82mm;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.color-role {
+  position: absolute;
+
+  top: 4mm;
+  left: 4mm;
+
+  font-size: 7px;
+  font-weight: 650;
+}
+
+.color-role.is-light {
+  color: var(--color-white);
+}
+
+.color-information {
+  padding-top: 4mm;
+}
+
+.color-name {
+  margin-bottom: 3mm;
+
+  font-size: 10px;
+  font-weight: 720;
+  letter-spacing: -0.025em;
+}
+
+.color-value-row {
+  min-height: 5mm;
+
+  display: grid;
+  grid-template-columns: 18mm 1fr;
+  align-items: baseline;
+
+  font-size: 7px;
+  line-height: 1.55;
+}
+
+.color-value-row dt {
+  color: var(--color-gray-700);
+  font-weight: 600;
+}
+
+.color-value-row dd {
+  margin: 0;
+
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   26. TYPOGRAPHY
+========================================================= */
+
+.typography-layout {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
+
+  gap: 12mm;
+}
+
+.font-specimen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.font-family-label {
+  color: var(--brand-primary);
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-family-name {
+  margin-top: 3mm;
+
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.font-weights {
+  margin-top: 7mm;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.8mm;
+}
+
+.font-weight-line {
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.font-characters {
+  margin-top: 8mm;
+
+  color: var(--color-dark);
+
+  font-size: 8px;
+  line-height: 1.8;
+  word-break: break-all;
+}
+
+.type-scale {
+  padding-left: 10mm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-left: 1px solid var(--line-light);
+}
+
+.type-scale-item {
+  padding: 3.5mm 0;
+
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  align-items: baseline;
+  gap: 5mm;
+
+  border-bottom: 1px solid var(--color-gray-300);
+}
+
+.type-scale-label {
+  color: var(--color-gray-700);
+
+  font-size: 7px;
+}
+
+.type-scale-sample {
+  letter-spacing: -0.03em;
+}
+
+.type-scale-item[data-level="display"] .type-scale-sample {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.type-scale-item[data-level="heading"] .type-scale-sample {
+  font-size: 14px;
+  font-weight: 680;
+}
+
+.type-scale-item[data-level="subheading"] .type-scale-sample {
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.type-scale-item[data-level="body"] .type-scale-sample {
+  font-size: 8px;
+  font-weight: 400;
+}
+
+.type-scale-item[data-level="caption"] .type-scale-sample {
+  font-size: 6.8px;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   27. APPLICATION
+========================================================= */
+
+.application-grid {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1.22fr 0.78fr;
+  grid-template-rows: 1fr 1fr;
+
+  gap: 5mm;
+}
+
+.application-item {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--color-gray-200);
+}
+
+.application-item:first-child {
+  grid-row: 1 / 3;
+}
+
+.application-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.application-label {
+  position: absolute;
+
+  right: 3mm;
+  bottom: 3mm;
+
+  padding: 1.4mm 2.3mm;
+
+  color: var(--color-white);
+  background: rgba(0, 0, 0, 0.58);
+
+  font-size: 6.7px;
+  font-weight: 550;
+}
+
+
+/* =========================================================
+   28. CLOSING
+========================================================= */
+
+.page-closing {
+  color: var(--color-white);
+  background: var(--brand-primary);
+}
+
+.page-closing .page-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.closing-logo {
+  width: 36mm;
+  max-height: 45mm;
+
+  color: var(--color-white);
+}
+
+.closing-slogan {
+  max-width: 175mm;
+  margin-top: 10mm;
+
+  font-size: 25px;
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
+
+.closing-description {
+  max-width: 125mm;
+  margin-top: 5mm;
+
+  font-size: 8px;
+  line-height: 1.75;
+  text-align: center;
+  opacity: 0.78;
+}
+
+.closing-meta {
+  position: absolute;
+
+  right: var(--page-padding-x);
+  bottom: var(--page-padding-bottom);
+  left: var(--page-padding-x);
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 7px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   29. NOSCRIPT
+========================================================= */
+
+.noscript-message {
+  position: fixed;
+
+  right: 20px;
+  bottom: 20px;
+  z-index: 2000;
+
+  max-width: 360px;
+  padding: 16px 18px;
+
+  color: var(--color-white);
+  background: var(--color-black);
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   30. ACCESSIBILITY
+========================================================= */
+
+.toolbar-button:focus-visible,
+.screen-navigation a:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   31. RESPONSIVE SCREEN
+
+   A4 페이지 원본 비율은 유지하면서
+   화면에서만 축소합니다.
+========================================================= */
+
+@media screen and (max-width: 1500px) {
+  :root {
+    --navigation-width: 188px;
+  }
+
+  .guideline-document {
+    padding-left:
+      calc(var(--navigation-width) + 50px);
+  }
+
+  .guideline-page {
+    transform: scale(0.88);
+    transform-origin: top center;
+
+    margin-bottom: calc(210mm * -0.12);
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .screen-navigation {
+    display: none;
+  }
+
+  .guideline-document {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .guideline-page {
+    transform: scale(0.78);
+
+    margin-bottom: calc(210mm * -0.22);
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .screen-toolbar {
+    height: auto;
+    min-height: var(--toolbar-height);
+
+    padding: 11px 14px;
+    gap: 12px;
+  }
+
+  .toolbar-brand span {
+    display: none;
+  }
+
+  .toolbar-controls {
+    gap: 5px;
+  }
+
+  .toolbar-button {
+    padding: 0 10px;
+  }
+
+  .page-indicator {
+    display: none;
+  }
+
+  .guideline-document {
+    padding-top: 84px;
+
+    overflow-x: hidden;
+  }
+
+  .guideline-page {
+    transform: scale(0.62);
+
+    margin-bottom: calc(210mm * -0.38);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #previousPageButton,
+  #nextPageButton {
+    display: none;
+  }
+
+  .guideline-document {
+    align-items: flex-start;
+
+    padding-right: 0;
+    padding-left: 12px;
+
+    overflow-x: auto;
+  }
+
+  .guideline-page {
+    transform: scale(0.46);
+    transform-origin: top left;
+
+    margin-bottom: calc(210mm * -0.54);
+  }
+}
