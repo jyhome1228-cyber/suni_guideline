@@ -1,0 +1,435 @@
+/* =========================================================
+   GENERIC BRAND GUIDELINES
+   Print / PDF Styles
+   A4 Landscape 297 × 210mm
+========================================================= */
+
+
+/* =========================================================
+   01. PAGE SETUP
+========================================================= */
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+
+/* =========================================================
+   02. PRINT MODE
+========================================================= */
+
+@media print {
+
+  /* -------------------------------------------------------
+     DOCUMENT
+  ------------------------------------------------------- */
+
+  html,
+  body {
+    width: 297mm;
+    min-width: 297mm;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #ffffff !important;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    overflow: visible !important;
+  }
+
+
+  /* -------------------------------------------------------
+     HIDE SCREEN UI
+  ------------------------------------------------------- */
+
+  .screen-only,
+  .screen-toolbar,
+  .screen-navigation,
+  .toolbar-controls,
+  .toolbar-button,
+  .page-indicator,
+  .noscript-message {
+    display: none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     DOCUMENT ROOT
+  ------------------------------------------------------- */
+
+  .guideline-document {
+    display: block !important;
+
+    width: 297mm !important;
+    min-width: 297mm !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #ffffff !important;
+  }
+
+
+  /* -------------------------------------------------------
+     A4 LANDSCAPE PAGE
+
+     페이지 개수와 관계없이
+     .guideline-page 한 개당 A4 한 장으로 출력됩니다.
+  ------------------------------------------------------- */
+
+  .guideline-page {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 297mm !important;
+    height: 210mm !important;
+
+    min-width: 297mm !important;
+    min-height: 210mm !important;
+
+    max-width: 297mm !important;
+    max-height: 210mm !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+    transform-origin: initial !important;
+
+    break-before: auto;
+    break-after: page;
+    break-inside: avoid;
+
+    page-break-before: auto;
+    page-break-after: always;
+    page-break-inside: avoid;
+
+    scroll-margin-top: 0 !important;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+
+  /* 마지막 페이지 뒤 빈 페이지 방지 */
+
+  .guideline-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+
+  /* -------------------------------------------------------
+     PAGE INNER
+  ------------------------------------------------------- */
+
+  .page-inner {
+    position: absolute !important;
+
+    inset:
+      var(--page-padding-top)
+      var(--page-padding-x)
+      var(--page-padding-bottom) !important;
+  }
+
+
+  /* -------------------------------------------------------
+     COMMON FOOTER
+  ------------------------------------------------------- */
+
+  .page-footer {
+    position: absolute !important;
+
+    right: var(--page-padding-x) !important;
+    bottom: var(--page-padding-bottom) !important;
+    left: var(--page-padding-x) !important;
+  }
+
+
+  /* -------------------------------------------------------
+     COVER / CLOSING META
+  ------------------------------------------------------- */
+
+  .cover-bottom,
+  .closing-meta {
+    position: absolute !important;
+
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     COLOR OUTPUT
+  ------------------------------------------------------- */
+
+  .page-cover,
+  .page-closing,
+  .page-full-image,
+  .full-image-stage,
+  .full-image-placeholder,
+  .full-image-placeholder-inner,
+  .logo-usage-card,
+  .color-swatch,
+  .message-visual,
+  .message-overlay,
+  .application-item,
+  .image-frame,
+  .empty-image {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+
+  /* -------------------------------------------------------
+     SVG / IMAGE
+  ------------------------------------------------------- */
+
+  svg,
+  img {
+    max-width: 100% !important;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .brand-logo svg {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    overflow: visible !important;
+  }
+
+
+  /* -------------------------------------------------------
+     FULL IMAGE MOCKUP PAGE
+  ------------------------------------------------------- */
+
+  .full-image-stage,
+  .full-image-placeholder {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 297mm !important;
+    height: 210mm !important;
+
+    overflow: hidden !important;
+  }
+
+  .full-image-stage img {
+    display: block !important;
+
+    width: 297mm !important;
+    height: 210mm !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .full-image-placeholder-inner {
+    position: absolute !important;
+
+    top: 11mm !important;
+    right: 13mm !important;
+    bottom: 11mm !important;
+    left: 13mm !important;
+
+    width: auto !important;
+    height: auto !important;
+  }
+
+
+  /* -------------------------------------------------------
+     IMAGE OVERFLOW
+  ------------------------------------------------------- */
+
+  .image-frame,
+  .introduction-image,
+  .application-item,
+  .message-visual,
+  .full-image-stage {
+    overflow: hidden !important;
+  }
+
+  .introduction-image img,
+  .application-item img,
+  .message-visual img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+  }
+
+
+  /* -------------------------------------------------------
+     LOGO SIZE STABILITY
+  ------------------------------------------------------- */
+
+  .cover-logo {
+    width: 36mm !important;
+    max-height: 44mm !important;
+  }
+
+  .closing-logo {
+    width: 36mm !important;
+    max-height: 45mm !important;
+  }
+
+  .primary-logo-symbol {
+    width: 43mm !important;
+    max-width: 43mm !important;
+    max-height: 55mm !important;
+  }
+
+  .primary-logo-full {
+    width: 41mm !important;
+    max-width: 41mm !important;
+    max-height: 55mm !important;
+  }
+
+  .logo-usage-card .brand-logo:not(.brand-logo-alternate) {
+    width: 27mm !important;
+    max-width: 27mm !important;
+    max-height: 34mm !important;
+  }
+
+  .logo-usage-card .brand-logo-alternate {
+    width: 29mm !important;
+    max-width: 29mm !important;
+    max-height: 35mm !important;
+  }
+
+
+  /* -------------------------------------------------------
+     LINK URL REMOVAL
+  ------------------------------------------------------- */
+
+  a[href]::after {
+    content: none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     REMOVE SCREEN EFFECTS
+  ------------------------------------------------------- */
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    text-shadow: none !important;
+  }
+
+  .screen-toolbar,
+  .screen-navigation,
+  .application-label {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     FONT RENDERING
+  ------------------------------------------------------- */
+
+  body {
+    font-family: var(--font-primary) !important;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+  /* -------------------------------------------------------
+     FLEX / GRID PAGE BREAK PROTECTION
+  ------------------------------------------------------- */
+
+  .page-header,
+  .page-content,
+  .page-footer,
+  .keyword-grid,
+  .logo-usage-grid,
+  .brand-color-grid,
+  .typography-layout,
+  .application-grid,
+  .primary-logo-versions {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+
+  /* -------------------------------------------------------
+     BACKGROUND FALLBACK
+  ------------------------------------------------------- */
+
+  .page-cover,
+  .page-closing {
+    background-color: var(--brand-primary) !important;
+  }
+
+  .logo-usage-card[data-background="white"] {
+    background-color: #fafafa !important;
+  }
+
+  .logo-usage-card[data-background="primary"] {
+    background-color: var(--brand-primary) !important;
+  }
+
+  .logo-usage-card[data-background="primary-light"] {
+    background-color: var(--brand-primary-light) !important;
+  }
+
+  .logo-usage-card[data-background="secondary"] {
+    background-color: var(--brand-secondary) !important;
+  }
+
+  .logo-usage-card[data-background="black"] {
+    background-color: var(--color-black) !important;
+  }
+}
+
+
+/* =========================================================
+   03. CHROME / EDGE SUPPORT
+========================================================= */
+
+@media print and (-webkit-min-device-pixel-ratio: 0) {
+
+  .guideline-page {
+    overflow: hidden !important;
+  }
+
+  .page-cover,
+  .page-closing {
+    background-color: var(--brand-primary) !important;
+  }
+
+  .full-image-stage img {
+    object-fit: cover !important;
+  }
+
+  .color-swatch,
+  .logo-usage-card,
+  .full-image-placeholder {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
