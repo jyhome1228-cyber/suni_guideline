@@ -722,7 +722,107 @@ ol {
 
 
 /* =========================================================
-   14. COVER
+   14. EXTERNAL SVG LOGO SUPPORT
+========================================================= */
+
+.brand-logo.is-external-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.brand-logo.is-external-logo img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 100%;
+  max-height: inherit;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 표지 */
+
+.cover-logo.is-external-logo img,
+.cover-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 마지막 페이지 */
+
+.closing-logo.is-external-logo img,
+.closing-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* 로고 콘셉트 */
+
+.logo-concept-logo .brand-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Primary Logo */
+
+.primary-logo-symbol img,
+.primary-logo-full img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Construction */
+
+.construction-grid .brand-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Clear Space */
+
+.clear-space-box .brand-logo img,
+.minimum-size-item .brand-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Logo Usage */
+
+.logo-usage-card .brand-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* =========================================================
+   15. COVER
 ========================================================= */
 
 .page-cover {
@@ -774,6 +874,7 @@ ol {
 
 .cover-logo {
   width: 36mm;
+  height: 44mm;
   max-height: 44mm;
 
   color: var(--color-white);
@@ -814,7 +915,7 @@ ol {
 
 
 /* =========================================================
-   15. FULL IMAGE MOCKUP PAGE
+   16. FULL IMAGE MOCKUP PAGE
 ========================================================= */
 
 .page-full-image {
@@ -917,7 +1018,7 @@ ol {
 
 
 /* =========================================================
-   16. BRAND INTRODUCTION
+   17. BRAND INTRODUCTION
 ========================================================= */
 
 .introduction-layout {
@@ -981,7 +1082,7 @@ ol {
 
 
 /* =========================================================
-   17. BRAND KEYWORDS
+   18. BRAND KEYWORDS
 ========================================================= */
 
 .keyword-grid {
@@ -1034,7 +1135,7 @@ ol {
 
 
 /* =========================================================
-   18. SLOGAN
+   19. SLOGAN
 ========================================================= */
 
 .slogan-layout {
@@ -1117,7 +1218,7 @@ ol {
 
 
 /* =========================================================
-   19. BRAND MESSAGE
+   20. BRAND MESSAGE
 ========================================================= */
 
 .message-visual {
@@ -1187,7 +1288,7 @@ ol {
 
 
 /* =========================================================
-   20. LOGO CONCEPT
+   21. LOGO CONCEPT
 ========================================================= */
 
 .logo-concept-layout {
@@ -1211,6 +1312,7 @@ ol {
 
 .logo-concept-logo .brand-logo {
   width: 48mm;
+  height: 60mm;
   max-height: 60mm;
 }
 
@@ -1275,7 +1377,7 @@ ol {
 
 
 /* =========================================================
-   21. PRIMARY LOGO
+   22. PRIMARY LOGO
 ========================================================= */
 
 .page-primary-logo .page-content {
@@ -1323,6 +1425,17 @@ ol {
   background: var(--line-light);
 }
 
+.page-primary-logo.is-single-logo
+.primary-logo-version:first-child::after {
+  display: none;
+}
+
+.page-primary-logo.is-single-logo
+.primary-logo-version {
+  max-width: 130mm;
+  margin: 0 auto;
+}
+
 .primary-logo-stage-box {
   width: 100%;
   height: 85mm;
@@ -1334,12 +1447,14 @@ ol {
 
 .primary-logo-symbol {
   width: 43mm;
+  height: 55mm;
   max-width: 43mm;
   max-height: 55mm;
 }
 
 .primary-logo-full {
   width: 41mm;
+  height: 55mm;
   max-width: 41mm;
   max-height: 55mm;
 }
@@ -1376,7 +1491,7 @@ ol {
 
 
 /* =========================================================
-   22. LOGO CONSTRUCTION
+   23. LOGO CONSTRUCTION
 ========================================================= */
 
 .construction-stage {
@@ -1413,6 +1528,7 @@ ol {
 
 .construction-grid .brand-logo {
   width: 49mm;
+  height: 61mm;
   max-height: 61mm;
 }
 
@@ -1444,7 +1560,7 @@ ol {
 
 
 /* =========================================================
-   23. CLEAR SPACE
+   24. CLEAR SPACE
 ========================================================= */
 
 .clear-space-layout {
@@ -1505,6 +1621,7 @@ ol {
 
 .clear-space-box .brand-logo {
   width: 42mm;
+  height: 52mm;
   max-height: 52mm;
 }
 
@@ -1540,6 +1657,7 @@ ol {
 
 .minimum-size-item .brand-logo {
   width: 22mm;
+  height: 27mm;
   max-height: 27mm;
 }
 
@@ -1558,7 +1676,7 @@ ol {
 
 
 /* =========================================================
-   24. LOGO USAGE
+   25. LOGO USAGE
 ========================================================= */
 
 .logo-usage-grid {
@@ -1638,17 +1756,19 @@ ol {
 
 .logo-usage-card .brand-logo:not(.brand-logo-alternate) {
   width: 27mm;
+  height: 34mm;
   max-height: 34mm;
 }
 
 .logo-usage-card .brand-logo-alternate {
   width: 29mm;
+  height: 35mm;
   max-height: 35mm;
 }
 
 
 /* =========================================================
-   25. BRAND COLOR
+   26. BRAND COLOR
 ========================================================= */
 
 .brand-color-grid {
@@ -1740,7 +1860,7 @@ ol {
 
 
 /* =========================================================
-   26. TYPOGRAPHY
+   27. TYPOGRAPHY
 ========================================================= */
 
 .typography-layout {
@@ -1859,7 +1979,7 @@ ol {
 
 
 /* =========================================================
-   27. APPLICATION
+   28. APPLICATION
 ========================================================= */
 
 .application-grid {
@@ -1908,7 +2028,7 @@ ol {
 
 
 /* =========================================================
-   28. CLOSING
+   29. CLOSING
 ========================================================= */
 
 .page-closing {
@@ -1925,6 +2045,7 @@ ol {
 
 .closing-logo {
   width: 36mm;
+  height: 45mm;
   max-height: 45mm;
 
   color: var(--color-white);
@@ -1968,7 +2089,7 @@ ol {
 
 
 /* =========================================================
-   29. NOSCRIPT
+   30. NOSCRIPT
 ========================================================= */
 
 .noscript-message {
@@ -1992,7 +2113,7 @@ ol {
 
 
 /* =========================================================
-   30. ACCESSIBILITY
+   31. ACCESSIBILITY
 ========================================================= */
 
 .toolbar-button:focus-visible,
@@ -2003,7 +2124,7 @@ ol {
 
 
 /* =========================================================
-   31. RESPONSIVE SCREEN
+   32. RESPONSIVE SCREEN
 
    A4 페이지 원본 비율은 유지하면서
    화면에서만 축소합니다.
@@ -2102,5 +2223,49 @@ ol {
     transform-origin: top left;
 
     margin-bottom: calc(210mm * -0.54);
+  }
+}
+
+
+/* =========================================================
+   33. PRINT SUPPORT FOR EXTERNAL SVG
+========================================================= */
+
+@media print {
+  .brand-logo.is-external-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+  }
+
+  .brand-logo.is-external-logo img {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .cover-logo img,
+  .closing-logo img,
+  .logo-concept-logo .brand-logo img,
+  .primary-logo-symbol img,
+  .primary-logo-full img,
+  .construction-grid .brand-logo img,
+  .clear-space-box .brand-logo img,
+  .minimum-size-item .brand-logo img,
+  .logo-usage-card .brand-logo img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
   }
 }
